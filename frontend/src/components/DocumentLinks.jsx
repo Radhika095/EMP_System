@@ -7,8 +7,6 @@ const TYPES = [
   ["offerLetter", "Offer letter"],
 ];
 
-// Uploaded documents ke "View" buttons. File login token ke saath fetch hoti hai,
-// isliye seedha link kaam nahi karta.
 export default function DocumentLinks({ employee, basePath }) {
   const [busy, setBusy] = useState("");
   const [error, setError] = useState("");
@@ -26,7 +24,7 @@ export default function DocumentLinks({ employee, basePath }) {
       a.click();
       setTimeout(() => URL.revokeObjectURL(url), 60000);
     } catch (err) {
-      // responseType "blob" mein server ka error bhi Blob aata hai, isliye use padh ke asli message dikhate hain
+      
       let msg = "Document open nahi ho paya.";
       const data = err?.response?.data;
       if (data instanceof Blob) {
